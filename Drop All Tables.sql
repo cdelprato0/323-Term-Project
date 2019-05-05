@@ -1,0 +1,25 @@
+SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE `cecs323sec5s13`.`Maitred`;
+DROP TABLE `cecs323sec5s13`.`Manager`;
+DROP TABLE `cecs323sec5s13`.`AssignedTables`;
+DROP TABLE `cecs323sec5s13`.`LineCook`;
+DROP TABLE `cecs323sec5s13`.`MenuItemSet`;
+DROP TABLE `cecs323sec5s13`.`Recipes`;
+DROP TABLE `cecs323sec5s13`.`MentorShip`;
+DROP TABLE `cecs323sec5s13`.`HeadChef`;
+DROP TABLE `cecs323sec5s13`.`SousChef`;
+DROP TABLE `cecs323sec5s13`.`Chef`;
+DROP TABLE `cecs323sec5s13`.`Spices`;
+DROP TABLE `cecs323sec5s13`.`Categories`;
+DROP TABLE `cecs323sec5s13`.`Corporation`;
+DROP TABLE `cecs323sec5s13`.`Customers`;
+DROP TABLE `cecs323sec5s13`.`Employee`;
+DROP TABLE `cecs323sec5s13`.`Menu`;
+DROP TABLE `cecs323sec5s13`.`MenuItem`;
+DROP TABLE `cecs323sec5s13`.`MenuMI`;
+DROP TABLE `cecs323sec5s13`.`Order`;
+DROP TABLE `cecs323sec5s13`.`OrderDetails`;
+DROP TABLE `cecs323sec5s13`.`ShiftCrew`;
+DROP TABLE `cecs323sec5s13`.`WaitStaff`;
+SET FOREIGN_KEY_CHECKS = 1;
+
