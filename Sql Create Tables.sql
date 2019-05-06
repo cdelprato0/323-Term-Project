@@ -1,4 +1,4 @@
---Customers
+-- Customers
 CREATE TABLE `cecs323sec5s13`.`Customers` (
   `CustomersID` INT NOT NULL,
   `custName` VARCHAR(45) NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE `cecs323sec5s13`.`Customers` (
   `MimingsMoney` INT ZEROFILL NOT NULL,
   PRIMARY KEY (`CustomersID`));
 
---Corporation
+-- Corporation
 CREATE TABLE `cecs323sec5s13`.`Corporation` (
   `CustomerID` int(11) NOT NULL,
   `corpName` varchar(45) NOT NULL,
@@ -17,57 +17,57 @@ CREATE TABLE `cecs323sec5s13`.`Corporation` (
   `contactInfo` varchar(45) NOT NULL,
   PRIMARY KEY (`CustomerID`,`corpName`));
 
---ShiftCrew
+-- ShiftCrew
 CREATE TABLE `cecs323sec5s13`.`ShiftCrew` (
   `ShiftID` INT NOT NULL,
   `shiftName` VARCHAR(45) NOT NULL,
-  `shiftDate` DATE NOT NULL,
-  `shiftTime` TIME NOT NULL,
+  `shiftDays` VARCHAR(45) NOT NULL,
+  `shiftTime` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`ShiftID`));
 
---Employee
+-- Employee
 CREATE TABLE `cecs323sec5s13`.`Employee` (
   `EmployeeID` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `DOB` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `wage` INT ZEROFILL NOT NULL,
+  `wage` INT NOT NULL,
   `position` VARCHAR(45) NOT NULL,
   `shift` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`EmployeeID`));
 
---Chef
+-- Chef
 CREATE TABLE `cecs323sec5s13`.`Chef` (
   `EmployeeID` INT NOT NULL,
   `experience` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`EmployeeID`));
 
---HeadChef
+-- HeadChef
 CREATE TABLE `cecs323sec5s13`.`HeadChef` (
   `EmployeeID` INT NOT NULL,
   `ShiftID` INT NOT NULL,
   PRIMARY KEY (`EmployeeID`));
 
---SousChef
+-- SousChef
 CREATE TABLE `cecs323sec5s13`.`SousChef` (
   `EmployeeID` INT NOT NULL,
   `ShiftID` INT NOT NULL,
   PRIMARY KEY (`EmployeeID`));
 
---LineCook
+-- LineCook
 CREATE TABLE `cecs323sec5s13`.`LineCook` (
   `EmployeeID` int(11) NOT NULL,
   `ShiftID` int(11) NOT NULL,
   `department` varchar(45) NOT NULL,
   PRIMARY KEY (`EmployeeID`));
 
---Recipes
+-- Recipes
 CREATE TABLE `cecs323sec5s13`.`Recipes` (
   `EmployeeID` INT NOT NULL,
   `recipe` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`EmployeeID`, `recipe`));
 
---MentorShip
+-- MentorShip
 CREATE TABLE `cecs323sec5s13`.`MentorShip` (
   `Employee1ID` INT NOT NULL,
   `Employee2ID` INT NOT NULL,
@@ -76,40 +76,40 @@ CREATE TABLE `cecs323sec5s13`.`MentorShip` (
   `endDate` DATE NULL,
   PRIMARY KEY (`Employee1ID`, `Employee2ID`, `MenuItemID`, `startDate`));
 
---MenuItemSet
+-- MenuItemSet
 CREATE TABLE `cecs323sec5s13`.`MenuItemSet` (
   `EmployeeID` INT NOT NULL,
   `menuItemSet` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`EmployeeID`));
+  PRIMARY KEY (`EmployeeID`, `menuItemSet`));
 
---Maitred
+-- Maitred
 CREATE TABLE `cecs323sec5s13`.`Maitred` (
   `EmployeeID` INT NOT NULL,
   `ShiftID` INT NOT NULL,
   `tables` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`EmployeeID`));
 
---WaitStaff
+-- WaitStaff
 CREATE TABLE `cecs323sec5s13`.`WaitStaff` (
   `EmployeeID` INT NOT NULL,
   `ShiftID` INT NOT NULL,
-  `tips` INT ZEROFILL NOT NULL,
+  `tips` INT NOT NULL,
   PRIMARY KEY (`EmployeeID`));
 
---AssignedTables
+-- AssignedTables
 CREATE TABLE `cecs323sec5s13`.`AssignedTables` (
   `EmployeeID` INT NOT NULL,
-  `assignedTable` VARCHAR(10) NOT NULL,
+  `assignedTable` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`EmployeeID`, `assignedTable`));
 
---Manager
+-- Manager
 CREATE TABLE `cecs323sec5s13`.`Manager` (
   `EmployeeID` INT NOT NULL,
   `ShiftID` INT NOT NULL,
   `inChargeOf` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`EmployeeID`));
 
---Order
+-- Order
 CREATE TABLE `cecs323sec5s13`.`Order` (
   `OrderID` INT NOT NULL,
   `CustomerID` INT NOT NULL,
@@ -118,13 +118,13 @@ CREATE TABLE `cecs323sec5s13`.`Order` (
   `ServerID` INT NOT NULL,
   PRIMARY KEY (`OrderID`));
 
---Menu
+-- Menu
 CREATE TABLE `cecs323sec5s13`.`Menu` (
   `MenuID` INT NOT NULL,
   `menuType` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`MenuID`));
 
---OrderDetails
+-- OrderDetails
 CREATE TABLE `cecs323sec5s13`.`OrderDetails` (
   `OrderID` int(11) NOT NULL,
   `MenuID` int(11) NOT NULL,
@@ -132,7 +132,7 @@ CREATE TABLE `cecs323sec5s13`.`OrderDetails` (
   `quantity` int(11) NOT NULL,
   PRIMARY KEY (`OrderID`,`MenuID`,`MenuItemID`));
 
---MenuMI
+-- MenuMI
 CREATE TABLE `cecs323sec5s13`.`MenuMI` (
   `MenuID` int(11) NOT NULL,
   `MenuItemID` int(11) NOT NULL,
@@ -140,29 +140,29 @@ CREATE TABLE `cecs323sec5s13`.`MenuMI` (
   `price` decimal(4,0) NOT NULL,
   PRIMARY KEY (`MenuID`,`MenuItemID`));
 
---MenuItem
+-- MenuItem
 CREATE TABLE `cecs323sec5s13`.`MenuItem` (
   `MenuItemID` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
-  `categoryAbbr` varchar(45) NOT NULL,
-  `spiceAbbr` varchar(45) NOT NULL,
+  `categoryAbbr` varchar(8) NOT NULL,
+  `spiceAbbr` varchar(8) NOT NULL,
   PRIMARY KEY (`MenuItemID`));
 
---Spices
+-- Spices
 CREATE TABLE `cecs323sec5s13`.`Spices` (
   `spiceAbbr` varchar(10) NOT NULL,
   `spice` varchar(45) NOT NULL,
   PRIMARY KEY (`spiceAbbr`));
 
---Categories
+-- Categories
 CREATE TABLE `cecs323sec5s13`.`Categories` (
   `categoryAbbr` VARCHAR(10) NOT NULL,
   `category` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`categoryAbbr`));
 
 
--------------------------------------------------
---Corporation
+-- -----------------------------------------------
+-- Corporation
 ALTER TABLE `cecs323sec5s13`.`Corporation` 
 ADD CONSTRAINT `customerID_FK` 
     FOREIGN KEY (`CustomerID`) 
@@ -170,7 +170,7 @@ ADD CONSTRAINT `customerID_FK`
     ON DELETE NO ACTION 
     ON UPDATE NO ACTION;
 
---Chef
+-- Chef
 ALTER TABLE `cecs323sec5s13`.`Chef` 
 ADD CONSTRAINT `Chef_FK`
     FOREIGN KEY (`EmployeeID`)
@@ -178,7 +178,7 @@ ADD CONSTRAINT `Chef_FK`
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 
---HeadChef
+-- HeadChef
 ALTER TABLE `cecs323sec5s13`.`HeadChef` 
 ADD CONSTRAINT `HeadChefID_FK`
     FOREIGN KEY (`EmployeeID`)
@@ -191,7 +191,7 @@ ADD CONSTRAINT `HeadChefShift_FK`
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 
---SousChef
+-- SousChef
 ALTER TABLE `cecs323sec5s13`.`SousChef` 
 ADD CONSTRAINT `SousID_FK`
     FOREIGN KEY (`EmployeeID`)
@@ -204,7 +204,7 @@ ADD CONSTRAINT `SousShift_FK`
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 
---LineCook
+-- LineCook
 ALTER TABLE `cecs323sec5s13`.`LineCook` 
 ADD CONSTRAINT `LineID_FK` FOREIGN KEY (`EmployeeID`) 
     REFERENCES `Employee` (`EmployeeID`) 
@@ -215,7 +215,7 @@ ADD CONSTRAINT `LineShift_FK` FOREIGN KEY (`ShiftID`)
     ON DELETE NO ACTION 
     ON UPDATE NO ACTION;
 
---Recipes
+-- Recipes
 ALTER TABLE `cecs323sec5s13`.`Recipes` 
 ADD CONSTRAINT `RecipeID_FK`
     FOREIGN KEY (`EmployeeID`)
@@ -223,7 +223,7 @@ ADD CONSTRAINT `RecipeID_FK`
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 
---MentorShip
+-- MentorShip
 ALTER TABLE `cecs323sec5s13`.`MentorShip` 
 ADD CONSTRAINT `Employee1ID_FK`
     FOREIGN KEY (`Employee1ID`)
@@ -241,7 +241,7 @@ ADD CONSTRAINT `MenuItemMentor_FK`
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 
---MenuItemSet
+-- MenuItemSet
 ALTER TABLE `cecs323sec5s13`.`MenuItemSet` 
 ADD CONSTRAINT `MIEmployeeID_FK`
     FOREIGN KEY (`EmployeeID`)
@@ -249,7 +249,7 @@ ADD CONSTRAINT `MIEmployeeID_FK`
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 
---Maitred
+-- Maitred
 ALTER TABLE `cecs323sec5s13`.`Maitred` 
 ADD CONSTRAINT `MaitreID_FK`
     FOREIGN KEY (`EmployeeID`)
@@ -262,7 +262,7 @@ ADD CONSTRAINT `MaitreShift_FK`
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 
---WaitStaff
+-- WaitStaff
 ALTER TABLE `cecs323sec5s13`.`WaitStaff` 
 ADD CONSTRAINT `WaitStaffID_FK`
     FOREIGN KEY (`EmployeeID`)
@@ -275,7 +275,7 @@ ADD CONSTRAINT `WaitStaffShift_FK`
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 
---AssignedTables
+-- AssignedTables
 ALTER TABLE `cecs323sec5s13`.`AssignedTables` 
 ADD CONSTRAINT `AssignedID_FK`
     FOREIGN KEY (`EmployeeID`)
@@ -283,7 +283,7 @@ ADD CONSTRAINT `AssignedID_FK`
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 
---Manager
+-- Manager
 ALTER TABLE `cecs323sec5s13`.`Manager` 
 ADD CONSTRAINT `ManagerID_FK`
     FOREIGN KEY (`EmployeeID`)
@@ -296,7 +296,7 @@ ADD CONSTRAINT `ManagerShift_FK`
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 
---Order
+-- Order
 ALTER TABLE `cecs323sec5s13`.`Order` 
 ADD CONSTRAINT `CustomerOrderID_FK`
     FOREIGN KEY (`CustomerID`)
@@ -309,7 +309,7 @@ ADD CONSTRAINT `ServerID_FK`
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 
---OrderDetails
+-- OrderDetails
 ALTER TABLE `cecs323sec5s13`.`OrderDetails` 
 ADD CONSTRAINT `MenuMI_FK` 
     FOREIGN KEY (`MenuID`, `MenuItemID`) 
@@ -322,7 +322,7 @@ ADD CONSTRAINT `OrderID_FK`
     ON DELETE NO ACTION 
     ON UPDATE NO ACTION;
 
---MenuMI
+-- MenuMI
 ALTER TABLE `cecs323sec5s13`.`MenuMI` 
 ADD CONSTRAINT `MenuID_FK` 
     FOREIGN KEY (`MenuID`) 
@@ -335,7 +335,7 @@ ADD CONSTRAINT `MenuItemID_FK`
     ON DELETE NO ACTION 
     ON UPDATE NO ACTION;
 
---MenuItem
+-- MenuItem
 ALTER TABLE `cecs323sec5s13`.`MenuItem` 
 ADD CONSTRAINT `Category_FK` 
     FOREIGN KEY (`categoryAbbr`) 
@@ -347,3 +347,8 @@ ADD CONSTRAINT `Spices_FK`
     REFERENCES `Spices` (`spiceAbbr`) 
     ON DELETE NO ACTION 
     ON UPDATE NO ACTION;
+
+--
+ALTER TABLE Employee ADD UNIQUE KEY `Employee_CK` (`name`, `DOB`, `email`);
+ALTER TABLE Spices ADD UNIQUE KEY `Spices_CK` (`spice`);
+ALTER TABLE Categories ADD UNIQUE KEY `Categories_CK` (`category`);
