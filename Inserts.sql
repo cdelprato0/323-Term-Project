@@ -252,55 +252,32 @@ INSERT INTO Recipes(EmployeeID, recipe) VALUES
 (0069, "Chef Special");
 
 --
-INSERT INTO MentorShip(Employee1ID, Employee2ID, MenuItemID, startDate, endDate) VALUES
-(0005, 0006, 001, "2016-12-21", "2017-01-03"),
-(0006, 0005, 002, "2017-11-02", "2017-11-22"),
-(0006, 0024, 003, "2018-03-10", "2018-04-01"),
-(0028, 0011, 006, "2018-07-30", "2018-08-03"),
-(0011, 0005, 006, "2019-01-21", NULL),
-(0028, 0033, 024, "2016-04-24", "2016-08-24"),
-(0034, 0033, 022, "2018-01-02", "2018-02-02"),
-(0052, 0062, 015, "2017-07-04", "2017-09-12"),
-(0071, 0024, 011, "2017-11-11", "2017-11-30"),
-(0033, 0011, 009, "2016-10-24", "2016-12-30"),
-(0062, 0034, 017, "2019-04-24", "2019-05-05"),
-(0005, 0071, 013, "2018-09-24", "2019-01-11"),
-(0024, 0052, 007, "2019-02-22", NULL);
+INSERT INTO Categories(categoryAbbr, category) VALUES
+("App", "Appetizer"),
+("Chef", "Chef Special"),
+("P", "Pork"),
+("C", "Chicken"),
+("B","Beef"),
+("S", "Seafood"),
+("V", "Vegetables"),
+("CM", "Chow Mein"),
+("EFY", "Egg Foo Young"),
+("CS", "Chop Suey");
 
 --
-INSERT INTO MenuItemSet(EmployeeID, menuItemSet) VALUES
-(0005, "Spring Rolls"),
-(0006, "Ginger Salmon"),
-(0011, "Lo Mein"),
-(0024, "Lo Mein"),
-(0028, "Fried Rice"),
-(0006, "Teriyaki Salmon"),
-(0006, "Spring Rolls"),
-(0024, "Chow Mein"),
-(0024, "Dim Sum"),
-(0024, "Fried Rice"),
-(0005, "Fried Tofu"),
-(0005, "Hot and Sour Soup"),
-(0005, "Chinese Omelette"),
-(0011, "Sweet and Sour Chicken"),
-(0011, "Fried Tofu"),
-(0011, "Barbecue Pork"),
-(0011, "Honey Walnut Shrimp"),
-(0028, "Fried Tofu"),
-(0033, "Barbecue Pork"),
-(0033, "Classic Special"),
-(0033, "Chicken Chop Suey"),
-(0034, "General Tsaos Chicken"),
-(0052, "Classic Special"),
-(0052, "General Tsaos Chicken"),
-(0062, "Wonton Soup"),
-(0062, "Pork Chop Suey"),
-(0071, "Honey Walnut Shrimp"),
-(0071, "Seafood Chow Mein"),
-(0071, "Sweet and Sour Chicken"),
-(0071, "Orange Chicken"),
-(0071, "Beef & Broccoli"),
-(0071, "Crispy Orange Beef");
+INSERT INTO Spices(spiceAbbr, spice) VALUES
+("M", "Mild"),
+("T", "Tangy"),
+("P", "Piquant"),
+("H", "Hot"),
+("OMG", "Oh My God");
+
+--
+INSERT INTO Menu(MenuID, MenuType) VALUES
+(1, "Evening"),
+(2, "Lunch"),
+(3, "Sunday Brunch"),
+(4, "Childrens");
 
 --
 INSERT INTO MenuItem(MenuItemID, `name`, categoryAbbr, spiceAbbr) VALUES
@@ -329,6 +306,63 @@ INSERT INTO MenuItem(MenuItemID, `name`, categoryAbbr, spiceAbbr) VALUES
 (0022, "Classic Special", "Chef","H"),
 (0023, "Chicken Chop Suey", "CS","P"),
 (0024, "Pork Chop Suey", "CS","P");
+
+--
+INSERT INTO MentorShip(MentorID, MenteeID, MenuItemID, startDate, endDate) VALUES
+(0005, 0006, 001, "2016-12-21", "2017-01-03"),
+(0006, 0005, 002, "2017-11-02", "2017-11-22"),
+(0006, 0024, 003, "2018-03-10", "2018-04-01"),
+(0028, 0011, 006, "2018-07-30", "2018-08-03"),
+(0011, 0005, 006, "2019-01-21", NULL),
+(0028, 0033, 024, "2016-04-24", "2016-08-24"),
+(0034, 0033, 022, "2018-01-02", "2018-02-02"),
+(0052, 0062, 015, "2017-07-04", "2017-09-12"),
+(0071, 0024, 011, "2017-11-11", "2017-11-30"),
+(0033, 0011, 009, "2016-10-24", "2016-12-30"),
+(0062, 0034, 017, "2019-04-24", "2019-05-05"),
+(0005, 0071, 013, "2018-09-24", "2019-01-11"),
+(0024, 0052, 007, "2019-02-22", NULL);
+
+--
+INSERT INTO MenuItemSet(EmployeeID, menuItemSet) VALUES
+(0005, "Spring Rolls"),
+(0005, "Lo Mein"),
+(0005, "Honey Walnut Shrimp"),
+(0006, "Ginger Salmon"),
+(0011, "Lo Mein"),
+(0024, "Lo Mein"),
+(0028, "Fried Rice"),
+(0006, "Teriyaki Salmon"),
+(0006, "Spring Rolls"),
+(0024, "Chow Mein"),
+(0024, "Dim Sum"),
+(0024, "Fried Rice"),
+(0005, "Fried Tofu"),
+(0005, "Hot and Sour Soup"),
+(0005, "Chinese Omelette"),
+(0011, "Sweet and Sour Chicken"),
+(0011, "Spring Rolls"),
+(0011, "Fried Tofu"),
+(0011, "Barbecue Pork"),
+(0011, "Honey Walnut Shrimp"),
+(0028, "Fried Tofu"),
+(0033, "Barbecue Pork"),
+(0033, "Classic Special"),
+(0033, "Chicken Chop Suey"),
+(0034, "General Tsaos Chicken"),
+(0034, "Sweet and Sour Chicken"),
+(0034, "Orange Chicken"),
+(0052, "Classic Special"),
+(0052, "General Tsaos Chicken"),
+(0062, "Wonton Soup"),
+(0062, "Pork Chop Suey"),
+(0071, "Honey Walnut Shrimp"),
+(0071, "General Tsaos Chicken"),
+(0071, "Seafood Chow Mein"),
+(0071, "Sweet and Sour Chicken"),
+(0071, "Orange Chicken"),
+(0071, "Beef & Broccoli"),
+(0071, "Crispy Orange Beef");
 
 -- 50 Tables, 15 Booths, 2 Bars
 INSERT INTO AssignedTables(EmployeeID, assignedTable) VALUES
@@ -365,30 +399,117 @@ INSERT INTO AssignedTables(EmployeeID, assignedTable) VALUES
 (0073, "Booth 0-5");
 
 --
-INSERT INTO Categories(categoryAbbr, category) VALUES
-("App", "Appetizer"),
-("Chef", "Chef Special"),
-("P", "Pork"),
-("C", "Chicken"),
-("B","Beef"),
-("S", "Seafood"),
-("V", "Vegetables"),
-("CM", "Chow Mein"),
-("EFY", "Egg Foo Young"),
-("CS", "Chop Suey");
+INSERT INTO MenuMI(MenuItemID, MenuID, `size`, price) VALUES
+(0000, 2, "M", 10.99),
+(0001, 2, "M", 12.99),
+(0002, 2, "M", 13.99),
+(0003, 2, "M", 12.99),
+(0004, 2, "M", 15.99),
+(0005, 2, "M", 10.99),
+(0006, 2, "M", 12.99),
+(0007, 2, "M", 8.99),
+(0008, 2, "M", 8.99),
+(0009, 2, "M", 10.99),
+(0010, 2, "M", 12.99),
+(0011, 2, "M", 14.99),
+(0012, 2, "M", 12.99),
+(0013, 2, "M", 10.99),
+(0014, 2, "M", 9.99),
+(0015, 2, "M", 14.99),
+(0016, 2, "M", 14.99),
+(0017, 2, "M", 10.99),
+(0018, 2, "M", 11.99),
+(0019, 2, "M", 12.99),
+(0020, 2, "M", 13.99),
+(0021, 2, "M", 13.99),
+(0022, 2, "M", 12.99),
+(0023, 2, "M", 10.99),
+(0024, 2, "M", 11.99), 
+
+(0001, 1, "L", 12.99),
+(0002, 1, "L", 13.99),
+(0003, 1, "L", 15.99),
+(0004, 1, "L", 14.99),
+(0005, 1, "L", 17.99),
+(0006, 1, "L", 12.99),
+(0007, 1, "L", 14.99),
+(0008, 1, "L", 10.99),
+(0009, 1, "L", 10.99),
+(0010, 1, "L", 12.99),
+(0011, 1, "L", 16.99),
+(0012, 1, "L", 14.99),
+(0013, 1, "L", 12.99),
+(0014, 1, "L", 13.99),
+(0015, 1, "L", 16.99),
+(0016, 1, "L", 17.99),
+(0017, 1, "L", 12.99),
+(0018, 1, "L", 13.99),
+(0019, 1, "L", 14.99),
+(0020, 1, "L", 15.99),
+(0021, 1, "L", 15.99),
+(0022, 1, "L", 14.99),
+(0023, 1, "L", 13.99),
+(0024, 1, "L", 14.99),
+
+(0001, 4, "S", 8.99),
+(0006, 4, "S", 8.99),
+(0007, 4, "S", 8.99),
+(0017, 4, "S", 8.99);
 
 --
-INSERT INTO Spices(spiceAbbr, spice) VALUES
-("M", "Mild"),
-("T", "Tangy"),
-("P", "Piquant"),
-("H", "Hot"),
-("OMG", "Oh My God");
+INSERT INTO Customers(CustomersID, custName, custEmail, snailMail, customerType, MimingsMoney) VALUES
+(105838, "John Cena", "JohnCena@gmail.com", "5671 Cena Avenue", "Person", 86),
+(136979, "Bill Nye", "BillBillBill@hotmail.com",   "3281 SunnyVille Drive", "Person", 137),
+(158946, "Justin Bieber", "BieberFever@hotmail.com",   "1111 Beverly Hills", "Person", 59),
+(193891, "GameStop", "Gamestop1213@gmail.com",   "8391 Bellflower Ave", "Corporation", 537),
+(190148, "Party City", "PartyCity8937@gmail.com",   "31489 Westminster Blvd", "Corporation", 1391),
+(290414, "Billy Ray Cyrus", "HorsesInTheBack@gmail.com",  " 0101 Old Town Road ", "Person", 69),
+(247695, "Elon Musk", "MuskyBoy@hotmail.com",  "8913 Mars Avenue", "Person", 10039),
+(371961, "Riot Games", "riotgames@gmail.com",  "12333 West Olympic Blvd", "Corporation", 330),
+(471263, "Jeff Bezos", "JeffBezos$$$@gmail.com",  "1303 Amazon Drive", "Person", 20398),
+(418931, "Bob Bob", "BobBob@hotmail.com",  "8080 Cherry Lane", "Person", 57),
+(578399, "Mcdonalds", "ImLovinIt@verizon.net",  "5555 Healthy Avenue", "Corporation", 5000),
+(908199, "Walmart Inc", "Walmart@walmart.com", "1000 Walmart Lane", "Corporation", 6589),
+(512389, "Apple Inc", "Apple@apple.com", "5267 Fruit Boulevard", "Corporation", 1212),
+(123907, "Toyota Inc", "Toyota@toyota.com", "90494 Toyota Drive", "Corporation", 12543),
+(987214, "Amazon Inc", "Amazon@amazon.com", "79561 Jungle Way", "Corporation", 9999),
+(515668, "Samsung Inc", "Samsung@samsung.com", "90785 Phone Boulevard", "Corporation", 8745),
+(809831, "Ford Automobiles", "Ford@ford.com", "89085 Ford Drive", "Corporation", 6545);
 
 --
-INSERT INTO Menu(MenuID, MenuTyp) VALUES
-(1, "Evening"),
-(2, "Lunch"),
-(3, "Sunday Brunch"),
-(4, "Childrens");
+INSERT INTO Corporation(CustomerID, corpName, organizationName, officeAddress, contactInfo) VALUES
+(908199, "Walmart Inc", "Walmart", "1000 Walmart Lane", "890-719-9999"),
+(512389, "Apple Inc", "Apple", "5267 Fruit Boulevard", "260-777-1374"),
+(123907, "Toyota Inc", "Toyota", "90494 Toyota Drive", "134-123-1512"),
+(987214, "Amazon Inc", "Amazon", "79561 Jungle Way", "125-161-6123"),
+(515668, "Samsung Inc", "Samsung", "90785 Phone Boulevard", "167-123-6089"),
+(809831, "Ford Automobiles", "Ford", "89085 Ford Drive", "985-162-1927");
 
+--
+INSERT INTO `Order`(OrderID, CustomerID, orderDate, orderType, ServerID)VALUES
+(101, 193891, "2017-09-27", "eat in", 13),
+(129, 578399, "2018-01-23", "phone", 13),
+(135, 290414, "2018-12-30", "web", 13),
+(108, 193891, "2017-10-28", "eat in", 14),
+(111, 193891, "2017-12-02", "eat in", 15),
+(131, 158946, "2018-11-26", "web", 16), 
+(127, 290414, "2018-01-11", "phone", 17),
+(115, 418931, "2018-08-17", "eat in", 17);
+
+--
+INSERT INTO OrderDetails(OrderID, MenuID, MenuItemID, quantity) VALUES
+(101, 1, 0001, 2),
+(101, 1, 0012, 3),
+(129, 1, 0008, 1),
+(135, 2, 0019, 1),
+(135, 2, 0023, 1),
+(108, 1, 0001, 3),
+(111, 1, 0005, 1),
+(111, 1, 0007, 1),
+(127, 4, 0006, 2),
+(127, 4, 0007, 3),
+(127, 4, 0001, 2),
+(127, 4, 0017, 1),
+(115, 1, 0006, 2),
+(115, 1, 0004, 3),
+(115, 1, 0002, 1);
