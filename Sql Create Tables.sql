@@ -5,7 +5,7 @@ CREATE TABLE `Customers` (
   `custEmail` VARCHAR(45) NOT NULL,
   `snailMail` VARCHAR(45) NOT NULL,
   `customerType` VARCHAR(45) NOT NULL,
-  `MimingsMoney` INT ZEROFILL NOT NULL,
+  `MimingsMoney` INT NOT NULL,
   PRIMARY KEY (`CustomersID`));
 
 -- Corporation
@@ -136,7 +136,7 @@ CREATE TABLE `OrderDetails` (
 CREATE TABLE `MenuMI` (
   `MenuID` int(11) NOT NULL,
   `MenuItemID` int(11) NOT NULL,
-  `size` varchar(45) NOT NULL,
+  `size` varchar(45),
   `price` decimal(4,2) NOT NULL,
   PRIMARY KEY (`MenuID`,`MenuItemID`));
 
@@ -159,6 +159,11 @@ CREATE TABLE `Categories` (
   `categoryAbbr` VARCHAR(10) NOT NULL,
   `category` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`categoryAbbr`));
+
+CREATE TABLE `Dishwasher` (
+  `EmployeeID` INT NOT NULL,
+  `ShiftID` INT NOT NULL,
+  PRIMARY KEY (`EmployeeID`));
 
 
 -- -----------------------------------------------
@@ -346,6 +351,19 @@ ADD CONSTRAINT `Spices_FK`
     FOREIGN KEY (`spiceAbbr`) 
     REFERENCES `Spices` (`spiceAbbr`) 
     ON DELETE NO ACTION 
+    ON UPDATE NO ACTION;
+
+-- Dishwasher
+ALTER TABLE `Dishwasher` 
+ADD CONSTRAINT `DWID_FK`
+    FOREIGN KEY (`EmployeeID`)
+    REFERENCES `Employee` (`EmployeeID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+ADD CONSTRAINT `DWShift_FK`
+    FOREIGN KEY (`ShiftID`)
+    REFERENCES `ShiftCrew` (`ShiftID`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 
 --
