@@ -1,4 +1,4 @@
---
+-- ShiftCrew
 INSERT INTO ShiftCrew(ShiftID, shiftName, shiftDays, shiftTime) VALUES 
 (10, "Monday, Wednesday, and Friday Mornings", "Monday/Wednesday/Friday", "8:00am" ),
 (15, "Monday, Wednesday, and Friday Nights", "Monday/Wednesday/Friday", "4:00pm" ),
@@ -7,7 +7,7 @@ INSERT INTO ShiftCrew(ShiftID, shiftName, shiftDays, shiftTime) VALUES
 (30, "Saturday and Sunday Mornings", "Saturday/Sunday", "8:00am" ),
 (35, "Saturday and Sunday Nights", "Saturday/Sunday", "4:00pm" );
 
---
+-- Employee
 INSERT INTO Employee(EmployeeID, `name`, DOB, email, wage, `position`, shift) VALUES
 (0001, "Mimi Op", "05/08/1980", "mimi@mimings.com", 20000, "Manager", "MWF Night"),
 (0002, "Chaz Del Prato", "04/24/1995", "Chaz@mimings.com", 15000, "Head Chef", "MWF Night"),
@@ -86,7 +86,7 @@ INSERT INTO Employee(EmployeeID, `name`, DOB, email, wage, `position`, shift) VA
 (0075, "Wee Woo", "10/18/1997", "Wee@mimings.com", 450, "Line Cook", "SatSun Morning"),
 (0076, "End End", "09/18/1979", "End@mimings.com", 470, "Line Cook", "SatSun Morning");
 
---
+-- Chef
 INSERT INTO Chef(EmployeeID, experience) VALUES 
 (2, "25 Years"),
 (5, "10 Years"),
@@ -130,7 +130,7 @@ INSERT INTO Chef(EmployeeID, experience) VALUES
 (59, "25 Years"),
 (69, "30 Years");
 
---
+-- HeadChef
 INSERT INTO HeadChef(EmployeeID, ShiftID) VALUES 
 (0002, 15),
 (0022, 25),
@@ -139,7 +139,7 @@ INSERT INTO HeadChef(EmployeeID, ShiftID) VALUES
 (0059, 20),
 (0069, 30);
 
---
+-- SousChef
 INSERT INTO SousChef(EmployeeID, ShiftID) VALUES
 (0005, 15),
 (0006, 15),
@@ -152,7 +152,7 @@ INSERT INTO SousChef(EmployeeID, ShiftID) VALUES
 (0062, 20),
 (0071, 30);
 
---
+-- Linecook
 INSERT INTO LineCook(EmployeeID, ShiftID, department) VALUES
 (0007, 15, "Butcher"),
 (0008, 15, "Fry Cook"),
@@ -180,7 +180,7 @@ INSERT INTO LineCook(EmployeeID, ShiftID, department) VALUES
 (0075, 30, "Vegetable Chef"),
 (0076, 30, "Butcher");
 
---
+-- Maitred
 INSERT INTO Maitred(EmployeeID, ShiftID, tables) VALUES
 (0003, 15, "Main and outside"),
 (0004, 25, "Main and outside"),
@@ -189,7 +189,7 @@ INSERT INTO Maitred(EmployeeID, ShiftID, tables) VALUES
 (0050, 20, "Main"),
 (0060, 30, "Main");
 
---
+-- Wait Staff
 INSERT INTO WaitStaff(EmployeeID, ShiftID, tips) VALUES
 (0013, 15, 90),
 (0014, 15, 100),
@@ -209,7 +209,7 @@ INSERT INTO WaitStaff(EmployeeID, ShiftID, tips) VALUES
 (0072, 30, 60),
 (0073, 30, 70);
 
---
+-- Manager
 INSERT INTO Manager(EmployeeID, ShiftID, inChargeOf) VALUES
 (0001, 15, "MWF Night Shift Crew"),
 (0020, 25, "TTh Night Shift Crew"),
@@ -218,7 +218,7 @@ INSERT INTO Manager(EmployeeID, ShiftID, inChargeOf) VALUES
 (0058, 20, "TTh Morning Shift Crew"),
 (0068, 30, "SatSun Morning Shift Crew");
 
---
+-- Recipes
 INSERT INTO Recipes(EmployeeID, recipe) VALUES
 (0002, "Hot and Sour Soup"),
 (0002, "Wonton Soup"),
@@ -251,7 +251,7 @@ INSERT INTO Recipes(EmployeeID, recipe) VALUES
 (0059, "Chef Special"),
 (0069, "Chef Special");
 
---
+-- Categories
 INSERT INTO Categories(categoryAbbr, category) VALUES
 ("App", "Appetizer"),
 ("Chef", "Chef Special"),
@@ -264,7 +264,7 @@ INSERT INTO Categories(categoryAbbr, category) VALUES
 ("EFY", "Egg Foo Young"),
 ("CS", "Chop Suey");
 
---
+-- Spices
 INSERT INTO Spices(spiceAbbr, spice) VALUES
 ("M", "Mild"),
 ("T", "Tangy"),
@@ -272,14 +272,14 @@ INSERT INTO Spices(spiceAbbr, spice) VALUES
 ("H", "Hot"),
 ("OMG", "Oh My God");
 
---
+-- Menu
 INSERT INTO Menu(MenuID, menuType) VALUES
 (1, "Evening"),
 (2, "Lunch"),
 (3, "Sunday Brunch"),
 (4, "Childrens");
 
---
+-- MenuItem
 INSERT INTO MenuItem(MenuItemID, `name`, categoryAbbr, spiceAbbr) VALUES
 (0000, "Dim Sum","App","M"),
 (0001, "Hot and Sour Soup","S","T"),
@@ -307,7 +307,7 @@ INSERT INTO MenuItem(MenuItemID, `name`, categoryAbbr, spiceAbbr) VALUES
 (0023, "Chicken Chop Suey", "CS","P"),
 (0024, "Pork Chop Suey", "CS","P");
 
---
+-- Mentorship
 INSERT INTO MentorShip(MentorID, MenteeID, MenuItemID, startDate, endDate) VALUES
 (0005, 0006, 001, "2016-12-21", "2017-01-03"),
 (0006, 0005, 002, "2017-11-02", "2017-11-22"),
@@ -323,7 +323,7 @@ INSERT INTO MentorShip(MentorID, MenteeID, MenuItemID, startDate, endDate) VALUE
 (0005, 0071, 013, "2018-09-24", "2019-01-11"),
 (0024, 0052, 007, "2019-02-22", NULL);
 
---
+-- MenuItemSet
 INSERT INTO MenuItemSet(EmployeeID, menuItemSet) VALUES
 (0005, "Spring Rolls"),
 (0005, "Lo Mein"),
@@ -398,7 +398,7 @@ INSERT INTO AssignedTables(EmployeeID, assignedTable) VALUES
 (0072, "Bar 1"),
 (0073, "Booth 0-5");
 
---
+-- MenuMI
 INSERT INTO MenuMI(MenuItemID, MenuID, `size`, price) VALUES
 (0000, 2, "Medium", 10.99),
 (0001, 2, "Medium", 12.99),
@@ -425,7 +425,6 @@ INSERT INTO MenuMI(MenuItemID, MenuID, `size`, price) VALUES
 (0022, 2, "Medium", 12.99),
 (0023, 2, "Medium", 10.99),
 (0024, 2, "Medium", 11.99), 
-
 (0001, 1, "Large", 12.99),
 (0002, 1, "Large", 13.99),
 (0003, 1, "Large", 15.99),
@@ -450,7 +449,6 @@ INSERT INTO MenuMI(MenuItemID, MenuID, `size`, price) VALUES
 (0022, 1, "Large", 14.99),
 (0023, 1, "Large", 13.99),
 (0024, 1, "Large", 14.99),
-
 (0001, 3, "Extra Medium", 0),
 (0002, 3, "Extra Medium", 0),
 (0003, 3, "Extra Medium", 0),
@@ -475,13 +473,12 @@ INSERT INTO MenuMI(MenuItemID, MenuID, `size`, price) VALUES
 (0022, 3, "Extra Medium", 0),
 (0023, 3, "Extra Medium", 0),
 (0024, 3, "Extra Medium", 0),
-
 (0001, 4, "Small", 8.99),
 (0006, 4, "Small", 8.99),
 (0007, 4, "Small", 8.99),
 (0017, 4, "Small", 8.99);
 
---
+-- Customers
 INSERT INTO Customers(CustomersID, custName, custEmail, snailMail, customerType, MimingsMoney) VALUES
 (105838, "John Cena", "JohnCena@gmail.com", "5671 Cena Avenue", "Person", 86),
 (136979, "Bill Nye", "BillBillBill@hotmail.com",   "3281 SunnyVille Drive", "Person", 137),
@@ -501,7 +498,7 @@ INSERT INTO Customers(CustomersID, custName, custEmail, snailMail, customerType,
 (515668, "Ariana Grande", "Samsung@samsung.com", "90785 Phone Boulevard", "Corporation", 8745),
 (809831, "Justin Brown", "Ford@ford.com", "89085 Ford Drive", "Corporation", 6545);
 
---
+-- Corp
 INSERT INTO Corporation(CustomerID, corpName, organizationName, officeAddress, contactInfo) VALUES
 (908199, "Walmart Inc", "Cashiers", "1000 Walmart Lane", "890-719-9999"),
 (512389, "Apple Inc", "Service", "5267 Fruit Boulevard", "260-777-1374"),
@@ -514,7 +511,7 @@ INSERT INTO Corporation(CustomerID, corpName, organizationName, officeAddress, c
 (371961, "Riot Games", "Developers", "12333 West Olympic Blvd", "656-854-8791"),
 (578399, "McDonalds", "Cooks", "5555 Healthy Avenue", "800-888-8920");
 
---
+-- Order
 INSERT INTO `Order`(OrderID, CustomerID, orderDate, orderType, ServerID) VALUES
 (101, 193891, "2017-09-27", "eat in", 13),
 (129, 578399, "2018-01-23", "phone", 13),
@@ -535,9 +532,7 @@ INSERT INTO `Order`(OrderID, CustomerID, orderDate, orderType, ServerID) VALUES
 (199, 371961, "2018-04-24", "eat in", 72),
 (200, 190148, "2019-01-30", "phone", 73);
 
-
-
---
+-- OrderDetails
 INSERT INTO OrderDetails(OrderID, MenuID, MenuItemID, quantity) VALUES
 (101, 1, 0001, 2),
 (101, 1, 0012, 3),
@@ -559,6 +554,8 @@ INSERT INTO OrderDetails(OrderID, MenuID, MenuItemID, quantity) VALUES
 (105, 4, 0017, 4),
 (160, 4, 0006, 10),
 (160, 4, 0001, 12),
+(160, 4, 0017, 11),
+(160, 4, 0007, 13),
 (175, 2, 0008, 2),
 (175, 2, 0020, 3),
 (178, 1, 0015, 3),
@@ -566,6 +563,8 @@ INSERT INTO OrderDetails(OrderID, MenuID, MenuItemID, quantity) VALUES
 (102, 3, 0024, 3),
 (165, 2, 0023, 2),
 (165, 2, 0022, 2),
+(104, 2, 0016, 8),
+(104, 2, 0024, 5),
 (104, 2, 0011, 3),
 (104, 2, 0015, 5),
 (104, 2, 0007, 2),
@@ -578,7 +577,7 @@ INSERT INTO OrderDetails(OrderID, MenuID, MenuItemID, quantity) VALUES
 (200, 1, 0009, 1),
 (200, 1, 0021, 1);
 
---
+-- Dishwasher
 INSERT INTO `Dishwasher`(`EmployeeID`,`ShiftID`) VALUES
 (0029, 15),
 (0030, 25),
