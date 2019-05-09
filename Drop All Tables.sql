@@ -21,5 +21,5 @@ DROP TABLE `Order`;
 DROP TABLE `OrderDetails`;
 DROP TABLE `ShiftCrew`;
 DROP TABLE `WaitStaff`;
+DROP TABLE `Dishwasher`;
 SET FOREIGN_KEY_CHECKS = 1;
-
