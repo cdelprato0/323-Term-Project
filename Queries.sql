@@ -45,7 +45,7 @@ WHERE MenuID = 4
 GROUP BY MenuItemID
 ORDER BY itemAmount DESC LIMIT 3;
 
--- 7
+-- 7 (NOT DONE)
 
 
 -- 8
@@ -61,7 +61,7 @@ WHERE mi.MenuID = od.MenuID
 GROUP BY o.CustomerID
 ORDER BY totalSpent DESC;
 
--- 10
+-- 10 (NOT DONE)
 
 
 -- 11
@@ -111,7 +111,7 @@ INNER JOIN MenuItem mi ON mi.MenuItemID = menMI.MenuItemID
 INNER JOIN Menu m ON m.MenuID = menMI.MenuID;
 
 
--- 17 EC
+-- 17 EC (NOT DONE)
 
 
 -- 18a There can be no more than 3 "Oh My God" spicy level foods on one order.
@@ -134,7 +134,14 @@ WHERE corp.CustomerID = c.CustomersID and quantity*price != 0 AND mmi.MenuID = o
 GROUP BY o.OrderID
 ORDER BY corpName;
 
--- 18c
-
+-- 18c The tips for the wait staff will automatically be added to the bill at 20% for each bill over $250
+SELECT custName, o.OrderID, SUM(ROUND(((quantity*price)+(quantity*price*0.20)),2)) AS TotalBillPlusTip FROM Customers c
+INNER JOIN `Order` o ON o.CustomerID = c.CustomersID
+INNER JOIN OrderDetails od ON od.OrderID = o.OrderID
+INNER JOIN MenuMI mmi ON mmi.MenuItemID = od.MenuItemID
+WHERE mmi.MenuID = od.MenuID
+GROUP BY o.OrderID
+HAVING SUM(quantity*price) > 250
+ORDER BY TotalBillPlusTip DESC;
 
 
